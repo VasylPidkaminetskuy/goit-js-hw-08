@@ -90,17 +90,18 @@ const markup = galleriesTemplate(images);
 refs.gallery.innerHTML = markup;
 
 refs.gallery.addEventListener('click', e => {
-  const link = e.target.closest('.gallery-link');
-  if (!link) {
-    return;
-  }
   e.preventDefault();
 
-  const img = link.querySelector('.gallery-image');
-  console.log(img.dataset.source);
+  if (e.target.nodeName !== 'IMG') {
+    return
+  };
+  const url = e.target.dataset.source;
+  const alt = e.target.alt
+  console.log(url);
+  console.log(alt);
 
   const instance = basicLightbox.create(`
-    <img src="${img.dataset.source}" width="1112" height="640">
+    <img alt="${alt}" src="${url}" width="1112" height="640">
 `);
 
   instance.show();
