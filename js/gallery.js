@@ -93,10 +93,10 @@ refs.gallery.addEventListener('click', e => {
   e.preventDefault();
 
   if (e.target.nodeName !== 'IMG') {
-    return
-  };
+    return;
+  }
   const url = e.target.dataset.source;
-  const alt = e.target.alt
+  const alt = e.target.alt;
   console.log(url);
   console.log(alt);
 
